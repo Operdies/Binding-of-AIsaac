@@ -1,6 +1,4 @@
-import ScoreReader
-import GameInput
-import Eyes
+from GameInteraction import Eyes, GameInput, ScoreReader
 import sys
 import random
 import signal

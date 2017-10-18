@@ -4,9 +4,9 @@
 #include <cstring>
 #include <vector>
 
-void ImageFromDisplay(std::vector<uint8_t>& Pixels, int& Width, int& Height, int& BitsPerPixel)
+void ImageFromDisplay(std::vector<uint8_t> &Pixels, int &Width, int &Height, int &BitsPerPixel)
 {
-    Display* display = XOpenDisplay(nullptr);
+    Display *display = XOpenDisplay(nullptr);
     Window root = DefaultRootWindow(display);
 
     XWindowAttributes attributes = {0};
@@ -15,7 +15,7 @@ void ImageFromDisplay(std::vector<uint8_t>& Pixels, int& Width, int& Height, int
     Width = attributes.width;
     Height = attributes.height;
 
-    XImage* img = XGetImage(display, root, 0, 0 , Width, Height, AllPlanes, ZPixmap);
+    XImage *img = XGetImage(display, root, 0, 0, Width, Height, AllPlanes, ZPixmap);
     BitsPerPixel = img->bits_per_pixel;
     Pixels.resize(Width * Height * 4);
 

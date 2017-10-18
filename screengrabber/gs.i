@@ -1,7 +1,15 @@
+/* File : gs.i */
 %module gs
+
 %{
-extern void ImageFromDisplay(std::vector<uint8_t>& Pixels, int& Width, int& Height, int& BitsPerPixel);
+#include "gs.h"
 %}
 
-extern void ImageFromDisplay(std::vector<uint8_t>& Pixels, int& Width, int& Height, int& BitsPerPixel);
+%include stl.i
+
+namespace std {
+    %template(UintVector) vector<uint8_t>;
+}
+
+%include "gs.h"
 
